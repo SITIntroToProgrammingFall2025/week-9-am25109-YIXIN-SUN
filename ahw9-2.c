@@ -5,7 +5,6 @@ int main() {
     int i, j, temp;
 
     for (i = 0; i < 5; i++) {
-        printf("Enter number %d: ", i + 1);
         scanf("%d", &a[i]);
     }
 
@@ -19,12 +18,12 @@ int main() {
         }
     }
 
-    printf("Sorted numbers: ");
+    printf("sorted array:\n");
+
     for (i = 0; i < 5; i++) {
-        printf("%d ", a[i]);
+        printf("%d", a[i]);
+        if (i < 4) printf(" ");
     }
 
     return 0;
 }
-
-
