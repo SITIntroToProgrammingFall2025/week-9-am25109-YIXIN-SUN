@@ -1,59 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    int A[3][2];
-    int B[2][3];
-    int C[3][3];
-    int i, j, k;
+    int rgb[3];
+    char hexDigits[] = "0123456789ABCDEF";
+    char hexCode[7];
 
-    printf("Enter first matrix (3 x 2) and second matrix (2 x 3)\n");
+    scanf("%d", &rgb[0]);
+    scanf("%d", &rgb[1]);
+    scanf("%d", &rgb[2]);
 
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 2; j++) {
-            scanf("%d", &A[i][j]);
-        }
+    for (int i = 0; i < 3; i++) {
+        int first = rgb[i] / 16;
+        int second = rgb[i] % 16;
+        hexCode[i*2] = hexDigits[first];
+        hexCode[i*2 + 1] = hexDigits[second];
     }
 
-    for (i = 0; i < 2; i++) {
-        for (j = 0; j < 3; j++) {
-            scanf("%d", &B[i][j]);
-        }
-    }
+    hexCode[6] = '\0';
 
-    printf("The first matrix you entered is\n");
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 2; j++) {
-            printf("%d ", A[i][j]);
-        }
-        printf("\n");
-    }
-
-    printf("The second matrix you entered is\n");
-    for (i = 0; i < 2; i++) {
-        for (j = 0; j < 3; j++) {
-            printf("%d ", B[i][j]);
-        }
-        printf("\n");
-    }
-
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 3; j++) {
-            C[i][j] = 0;
-            for (k = 0; k < 2; k++) {
-                C[i][j] += A[i][k] * B[k][j];
-            }
-        }
-    }
-
-    printf("The multiplication product of matrix A and matrix B :\n");
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 3; j++) {
-            printf("%d ", C[i][j]);
-        }
-        printf("\n");
-    }
+    printf("The hex code is #%s", hexCode);
 
     return 0;
 }
-
-
